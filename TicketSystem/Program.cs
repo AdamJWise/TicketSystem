@@ -21,7 +21,7 @@ namespace TicketSystem
 
             ticketService.PopulateInitialDB();
 
-            String optionsSerialized = CommandLine.Parser.Default.ParseArguments<CountOptionsCLI, HoldOptionsCLI, ReserveOptionsCLI>(args)
+            String optionsSerialized = CommandLine.Parser.Default.ParseArguments<CountOptionsCLI, HoldOptionsCLI, ReserveOptionsCLI, ResetOptionsCLI>(args)
               .MapResult(
                 (CountOptionsCLI opts) => RetrieveCount(opts),
                 (HoldOptionsCLI opts) => Hold(opts),
