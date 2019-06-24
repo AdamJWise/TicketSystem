@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TicketData;
 using System.Linq;
 using System.Security.Cryptography;
@@ -20,6 +18,14 @@ namespace TicketSystemService
             {
                 TimeSpan ret = new TimeSpan(0, 0, kSecondsHoldTimeout);
                 return ret;
+            }
+        }
+
+        public void PopulateInitialDB()
+        {
+            using (var dbContext = new TicketSystemDbContext())
+            {
+                dbContext.DatabaseMigrate();
             }
         }
 

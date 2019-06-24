@@ -21,5 +21,10 @@ namespace TicketData
 
             optionsBuilder.UseSqlite("Data Source=" + pathDb);
         }
+
+        public void DatabaseMigrate()
+        {
+            this.Database.Migrate();
+        }
     }
 }

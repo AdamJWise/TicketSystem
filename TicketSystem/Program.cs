@@ -19,6 +19,8 @@ namespace TicketSystem
         {
             ticketService = new TicketService();
 
+            ticketService.PopulateInitialDB();
+
             String optionsSerialized = CommandLine.Parser.Default.ParseArguments<CountOptionsCLI, HoldOptionsCLI, ReserveOptionsCLI>(args)
               .MapResult(
                 (CountOptionsCLI opts) => RetrieveCount(opts),

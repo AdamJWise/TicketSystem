@@ -10,6 +10,7 @@ namespace TicketTests
         public void CountAvailableSeatsTest()
         {
             TicketService ticketService = new TicketService();
+            ticketService.PopulateInitialDB();
             ticketService.ClearAllClaims();
             int seatsAvailable = ticketService.numSeatsAvailable();
             Assert.IsTrue(seatsAvailable > 0);
@@ -34,6 +35,7 @@ namespace TicketTests
         public void HoldMultipleSeatsTest()
         {
             TicketService ticketService = new TicketService();
+            ticketService.PopulateInitialDB();
             ticketService.ClearAllClaims();
 
             int seatsToHold = 5;
