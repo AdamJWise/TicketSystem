@@ -26,9 +26,16 @@ namespace TicketSystem
                 (CountOptionsCLI opts) => RetrieveCount(opts),
                 (HoldOptionsCLI opts) => Hold(opts),
                 (ReserveOptionsCLI opts) => Reserve(opts),
+                (ResetOptionsCLI opts) => Reset(opts),
                 errs => " ");
 
             Console.WriteLine(optionsSerialized);
+        }
+
+        private static string Reset(ResetOptionsCLI opts)
+        {
+            ticketService.ClearAllClaims();
+            return "Reset Complete. All seat holds and reservations have been removed";
         }
 
         private static string RetrieveCount(CountOptionsCLI opts)
